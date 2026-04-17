@@ -1,6 +1,6 @@
 # AWS End-to-End Data Pipeline
 
-**Region:** eu-north-1 | **Status:** All 17 Steps Complete
+**Region:** eu-north-1
 
 ## Architecture
 
