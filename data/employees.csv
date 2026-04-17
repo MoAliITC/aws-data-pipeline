@@ -1,0 +1,11 @@
+id,name,department,salary,hire_date
+1,Alice Johnson,Engineering,85000.00,2023-01-15
+2,Bob Smith,Marketing,72000.00,2023-03-22
+3,Carol Davis,Engineering,91000.00,2022-11-08
+4,David Wilson,Sales,67000.00,2023-06-01
+5,Eva Martinez,HR,75000.00,2022-09-14
+6,Frank Brown,Engineering,95000.00,2021-07-20
+7,Grace Lee,Marketing,69000.00,2023-08-30
+8,Henry Taylor,Sales,71000.00,2022-04-11
+9,Iris Chen,HR,78000.00,2023-02-28
+10,Jack White,Engineering,88000.00,2022-12-05
