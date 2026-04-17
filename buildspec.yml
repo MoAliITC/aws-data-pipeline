@@ -1,0 +1,16 @@
+version: 0.2
+# ================================================================
+# CodeBuild Buildspec — pipeline-build-bdclp
+# Triggered automatically by CodePipeline on every git push.
+# Deploys Glue ETL script to S3 and updates the live Glue job.
+# ================================================================
+phases:
+  build:
+    commands:
+      - echo Deploying Glue script to S3...
+      - aws s3 cp glue_etl/bronze_to_silver.py s3://my-pipeline-scripts-bdclp/glue-scripts/bronze_to_silver.py
+      - echo Writing job update JSON...
+      - printf '{"Command":{"Name":"glueetl","ScriptLocation":"s3://my-pipeline-scripts-bdclp/glue-scripts/bronze_to_silver.py","PythonVersion":"3"},"Role":"arn:aws:iam::430006376054:role/glue-crawler-role-bdclp","GlueVersion":"4.0","WorkerType":"G.1X","NumberOfWorkers":2}' > /tmp/job_update.json
+      - cat /tmp/job_update.json
+      - aws glue update-job --job-name bronze-to-silver-etl-bdclp --region eu-north-1 --job-update file:///tmp/job_update.json
+      - echo Deployment complete!
